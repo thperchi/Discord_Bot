@@ -1,0 +1,14 @@
+{
+    "boss": {
+        "name" : "Michel",
+        "hp" : 400,
+        "atk" : 10,
+        "crit" : 20
+    },
+    "player" : {
+        "name" : "",
+        "hp" : 100,
+        "atk" : 10,
+        "crit" : 20
+    }
+}

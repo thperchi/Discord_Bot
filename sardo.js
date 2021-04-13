@@ -11,6 +11,9 @@ module.exports = {
 		if (msg.content.toLowerCase() === 'ascii') {
 			msg.reply('flemme')
 		}
+		if (msg.content.toLowerCase === 'non') {
+			msg.reply('https://www.youtube.com/watch?v=caXgpo5Ezo4');
+		}
 		if (msg.content.toLowerCase().includes('rick')) {
 			msg.reply('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 		}
@@ -20,13 +23,10 @@ module.exports = {
 		if (msg.content.toLowerCase().includes('bucheron') || msg.content.toLowerCase().includes('bûcheron')) {
 			msg.reply('JE SUIS UN CHASSEUR DE BOIS');
 		}
-		if (msg.content === '!delete50' && (msg.author.username === "PikaStreamx" || msg.author.username === "Azaeps 🔥")) {
-			msg.channel.bulkDelete(args[50]).then(() => {
-                msg.channel.send("***Deleted 50 messages***")
-                .then(msg => {
-                    msg.delete({ timeout: 1000 });
-                });
-            });
+		if (msg.content.startsWith('!delete') && (msg.author.username === "PikaStreamx" || msg.author.username === "Azaeps 🔥")) {
+			const args = msg.content.trim().split(' ');
+			msg.channel.bulkDelete(args[1])
+			.catch((error) => console.log(error));
 		}
 	}
 }

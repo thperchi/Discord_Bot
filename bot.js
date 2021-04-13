@@ -9,8 +9,12 @@ client.on('ready', () => {
 	});
   
 client.on('message', msg => {
+	if (msg.content === "suce") {
+		msg.reply('pute')
+		console.log(msg.author.username);
+	}
 	if (msg.content === '!play') game.game(msg, client);
-	if (msg.author.username != client.user.username) {
+	if (msg.author.username !== client.user.username) {
 		sardo.rep(msg);
 	}
 });

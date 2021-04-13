@@ -20,5 +20,13 @@ module.exports = {
 		if (msg.content.toLowerCase().includes('bucheron') || msg.content.toLowerCase().includes('bûcheron')) {
 			msg.reply('JE SUIS UN CHASSEUR DE BOIS');
 		}
+		if (msg.content === '!delete50' && (msg.author.username === "PikaStreamx" || msg.author.username === "Azaeps 🔥")) {
+			msg.channel.bulkDelete(args[50]).then(() => {
+                msg.channel.send("***Deleted 50 messages***")
+                .then(msg => {
+                    msg.delete({ timeout: 1000 });
+                });
+            });
+		}
 	}
 }

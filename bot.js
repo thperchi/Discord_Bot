@@ -7,14 +7,14 @@ const role = require('./roles');
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
-	});
-  
-client.on('message', msg => {
-	if (msg.content.startsWith('.')) role.role(msg, client) 
 });
+
 client.on('message', async msg => {
-	if (msg.content === '!play') game.play(msg, client);
-	if (!msg.author.bot) sardo.rep(msg);
+	if (!msg.author.bot) {
+		if (msg.content === '!play') game.play(msg, client);
+		if (msg.content.startsWith('.')) role.role(msg, client);
+		sardo.rep(msg);
+	}
 })
 
 client.login(config.token);

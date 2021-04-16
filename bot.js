@@ -1,18 +1,20 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const config = require('./config');
+const config = require('./db/config.json');
 const sardo = require('./sardo');
-const game = require('./game')
+const game = require('./game');
+const role = require('./roles');
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	});
   
 client.on('message', msg => {
-	if (msg.content === '!play') game.game(msg, client);
-	if (msg.author.username !== client.user.username) {
-		sardo.rep(msg);
-	}
+	if (msg.content.startsWith('.')) role.role(msg, client) 
 });
+client.on('message', async msg => {
+	if (msg.content === '!play') game.play(msg, client);
+	if (!msg.author.bot) sardo.rep(msg);
+})
 
 client.login(config.token);

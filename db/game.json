@@ -1,7 +1,7 @@
 {
     "boss": {
         "name" : "Michel",
-        "hp" : 10,
+        "hp" : 200,
         "atk" : 10,
         "crit" : 20
     },
